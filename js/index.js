@@ -315,13 +315,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('playerForm').addEventListener('submit', (e) => {
         e.preventDefault();
+        // const newPlayer = {
+        //     name: document.getElementById('playerName').value,
+        //     position: document.getElementById('playerPosition').value,
+        //     rating: parseInt(document.getElementById('playerRating').value),
+        //     club: document.getElementById('playerClub').value,
+        //     nationality: document.getElementById('playerNationality').value
+        // };
         const newPlayer = {
             name: document.getElementById('playerName').value,
+            photo: document.getElementById('player-picture').value,
             position: document.getElementById('playerPosition').value,
-            rating: parseInt(document.getElementById('playerRating').value),
+            nationality: document.getElementById('playerNationality').value,
+            flag: document.getElementById('playerNationalityFlag').value,
             club: document.getElementById('playerClub').value,
-            nationality: document.getElementById('playerNationality').value
+            logo: document.getElementById('teamSelectFlag').value,
+            rating: parseInt(document.getElementById('playerRating').value),
+            pace: parseInt(document.getElementById('playerPace').value),
+            shooting: parseInt(document.getElementById('playerShooting').value),
+            passing: parseInt(document.getElementById('playerPassing').value),
+            dribbling: parseInt(document.getElementById('playerDribbling').value),
+            defending: parseInt(document.getElementById('playerDefending').value),
+            physical: parseInt(document.getElementById('playerPhysical').value),
         };
+        
         playersData.push(newPlayer);
         document.getElementById('playersList').appendChild(createPlayerCard(newPlayer));
         e.target.reset();

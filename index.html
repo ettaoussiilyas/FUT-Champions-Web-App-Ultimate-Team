@@ -18,13 +18,25 @@
                 <div class="bg-white rounded-lg p-4 shadow">
                     <h2 class="text-xl font-bold mb-4">Gestion des Joueurs</h2>
                     <form id="playerForm" class="space-y-4">
+                        <!-- Player Name -->
                         <div>
                             <label for="playerName" class="block text-sm font-medium text-gray-700">Nom du Joueur</label>
-                            <input type="text" id="playerName" name="playerName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <input type="text" id="playerName" name="playerName" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         </div>
+                    
+                        <!-- Player Photo -->
+                        <div>
+                            <label for="player-picture" class="block text-sm font-medium text-gray-700">Player Photo URL</label>
+                            <input type="text" id="player-picture" name="player-picture" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </div>
+                    
+                        <!-- Player Position -->
                         <div>
                             <label for="playerPosition" class="block text-sm font-medium text-gray-700">Position</label>
-                            <select id="playerPosition" name="playerPosition" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <select id="playerPosition" name="playerPosition" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="">Sélectionner une position</option>
                                 <option value="GK">Gardien de but (GK)</option>
                                 <option value="CB">Défenseur central (CB)</option>
@@ -38,34 +50,135 @@
                                 <option value="ST">Attaquant (ST)</option>
                             </select>
                         </div>
+                    
+                        <!-- Player Rating -->
                         <div>
-                            <label for="playerRating" class="block text-sm font-medium text-gray-700">Note</label>
-                            <input type="number" id="playerRating" name="playerRating" min="1" max="99" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <label for="playerRating" class="block text-sm font-medium text-gray-700">Évaluation</label>
+                            <input type="number" id="playerRating" name="playerRating" min="1" max="99" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         </div>
-                        <div>
-                            <label for="playerClub" class="block text-sm font-medium text-gray-700">Club</label>
-                            <input type="text" id="playerClub" name="playerClub" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                        </div>
+                    
+                        <!-- Player Nationality -->
                         <div>
                             <label for="playerNationality" class="block text-sm font-medium text-gray-700">Nationalité</label>
-                            <input type="text" id="playerNationality" name="playerNationality" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <input type="text" id="playerNationality" name="playerNationality" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         </div>
-                        
-                        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    
+                        <!-- Nationality Flag -->
+                        <div>
+                            <label for="playerNationalityFlag" class="block text-sm font-medium text-gray-700">Nationalité Flag</label>
+                            <select id="playerNationalityFlag" name="country" autocomplete="country" class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_the_United_Nations.svg/512px-Flag_of_the_United_Nations.svg.png">Select Country</option>
+                                <option value="https://cdn.sofifa.net/flags/af.png">playerNationality</option>
+                                <option value="https://cdn.sofifa.net/flags/ar.png">Argentina</option>
+                                <option value="https://cdn.sofifa.net/flags/au.png">Australia</option>
+                                <option value="https://cdn.sofifa.net/flags/ca.png">Canada</option>
+                                <option value="https://cdn.sofifa.net/flags/cn.png">China</option>
+                                <option value="https://cdn.sofifa.net/flags/fr.png">France</option>
+                                <option value="https://cdn.sofifa.net/flags/de.png">Germany</option>
+                                <option value="https://cdn.sofifa.net/flags/in.png">India</option>
+                                <option value="https://cdn.sofifa.net/flags/it.png">Italy</option>
+                                <option value="https://cdn.sofifa.net/flags/jp.png">Japan</option>
+                                <option value="https://cdn.sofifa.net/flags/mx.png">Mexico</option>
+                                <option value="https://cdn.sofifa.net/flags/ma.png">Morocco</option>
+                                <option value="https://cdn.sofifa.net/flags/ng.png">Nigeria</option>
+                                <option value="https://cdn.sofifa.net/flags/pt.png">Portugal</option>
+                                <option value="https://cdn.sofifa.net/flags/ru.png">Russia</option>
+                                <option value="https://cdn.sofifa.net/flags/sa.png">Saudi Arabia</option>
+                                <option value="https://cdn.sofifa.net/flags/es.png">Spain</option>
+                                <option value="https://cdn.sofifa.net/flags/se.png">Sweden</option>
+                                <option value="https://cdn.sofifa.net/flags/tr.png">Turkey</option>
+                                <option value="https://cdn.sofifa.net/flags/us.png">United States</option>
+                            </select>
+                        </div>
+                    
+                        <!-- Player Club -->
+                        <div>
+                            <label for="playerClub" class="block text-sm font-medium text-gray-700">Club</label>
+                            <input type="text" id="playerClub" name="playerClub" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </div>
+                    
+                        <!-- Club Logo -->
+                        <div>
+                            <label for="teamSelectFlag" class="block text-sm font-medium text-gray-700">Logo du Club</label>
+                            <select id="teamSelectFlag" name="team" autocomplete="team" class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_the_United_Nations.svg/512px-Flag_of_the_United_Nations.svg.png">Select Team</option>
+                                <option value="https://cdn.sofifa.net/teams/242/120.png">Inter Miami</option>
+                                <option value="https://cdn.sofifa.net/teams/243/120.png">Real Madrid</option>
+                                <option value="https://cdn.sofifa.net/teams/241/120.png">Paris Saint-Germain</option>
+                                <option value="https://cdn.sofifa.net/teams/11/120.png">Manchester United</option>
+                                <option value="https://cdn.sofifa.net/teams/10/120.png">Manchester City</option>
+                                <option value="https://cdn.sofifa.net/teams/21/120.png">Bayern Munich</option>
+                                <option value="https://cdn.sofifa.net/teams/9/120.png">Liverpool</option>
+                                <option value="https://cdn.sofifa.net/teams/5/120.png">Chelsea</option>
+                                <option value="https://cdn.sofifa.net/teams/45/120.png">Juventus</option>
+                                <option value="https://cdn.sofifa.net/teams/1/120.png">Arsenal</option>
+                                <option value="https://cdn.sofifa.net/teams/13/120.png">Atletico Madrid</option>
+                                <option value="https://cdn.sofifa.net/teams/47/120.png">AC Milan</option>
+                                <option value="https://cdn.sofifa.net/teams/110/120.png">Inter Milan</option>
+                                <option value="https://cdn.sofifa.net/teams/18/120.png">Tottenham Hotspur</option>
+                                <option value="https://cdn.sofifa.net/teams/48/120.png">Napoli</option>
+                                <option value="https://cdn.sofifa.net/teams/22/120.png">Dortmund</option>
+                                <option value="https://cdn.sofifa.net/teams/112172/120.png">RB Leipzig</option>
+                                <option value="https://cdn.sofifa.net/teams/191/120.png">Ajax</option>
+                                <option value="https://cdn.sofifa.net/teams/234/120.png">Benfica</option>
+                                <option value="https://cdn.sofifa.net/teams/481/120.png">Sevilla</option>
+                            </select>                            
+                        </div>
+                    
+                        <!-- Player Stats -->
+                        <div>
+                            <label for="playerPace" class="block text-sm font-medium text-gray-700">Pace</label>
+                            <input type="number" id="playerPace" name="playerPace" min="0" max="99" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="playerShooting" class="block text-sm font-medium text-gray-700">Shooting</label>
+                            <input type="number" id="playerShooting" name="playerShooting" min="0" max="99" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="playerPassing" class="block text-sm font-medium text-gray-700">Passing</label>
+                            <input type="number" id="playerPassing" name="playerPassing" min="0" max="99" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="playerDribbling" class="block text-sm font-medium text-gray-700">Dribbling</label>
+                            <input type="number" id="playerDribbling" name="playerDribbling" min="0" max="99" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="playerDefending" class="block text-sm font-medium text-gray-700">Defending</label>
+                            <input type="number" id="playerDefending" name="playerDefending" min="0" max="99" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="playerPhysical" class="block text-sm font-medium text-gray-700">Physical</label>
+                            <input type="number" id="playerPhysical" name="playerPhysical" min="0" max="99" required 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </div>
+                    
+                        <!-- Submit Button -->
+                        <button type="submit" 
+                            class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             Ajouter Joueur
                         </button>
                     </form>
+                    
+                    
                 </div> 
                 <div class="bg-white rounded-lg p-4 shadow">
                     <h2 class="text-xl font-bold mb-4">Joueurs Disponibles</h2>
                     <div id="playersList" class="grid grid-cols-1 md:grid-cols-2 gap-4" style="height: 550px; overflow: scroll;">
-                        <!-- Players will be dynamically added here -->
+                        <!-- Players added here -->
                     </div>
                 </div>
                 <div class="bg-white rounded-lg p-4 shadow">
                     <h2 class="text-xl font-bold mb-4">Remplaçants</h2>
                     <div id="substitutesList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Substitutes will be dynamically added here -->
+                        <!-- Substitutes  added here -->
                     </div>
                 </div>
             </div>
