@@ -4,36 +4,106 @@ let selectedFormation = '4-3-3';
 let teamPlayers = [];
 let substitutes = [];
 
+// const formations = {
+//     '4-3-3': [
+//         { position: 'GK', x: 50, y: 90 },
+//         { position: 'LB', x: 20, y: 70 },
+//         { position: 'CB', x: 35, y: 70 },
+//         { position: 'CB', x: 65, y: 70 },
+//         { position: 'RB', x: 80, y: 70 },
+//         { position: 'CM', x: 35, y: 50 },
+//         { position: 'CM', x: 50, y: 45 },
+//         { position: 'CM', x: 65, y: 50 },
+//         { position: 'LW', x: 20, y: 25 },
+//         { position: 'ST', x: 50, y: 20 },
+//         { position: 'RW', x: 80, y: 25 }
+//     ],
+    
+//     '4-4-2': [
+//         { position: 'GK', x: 50, y: 90 },
+//         { position: 'LB', x: 20, y: 70 },
+//         { position: 'CB', x: 35, y: 70 },
+//         { position: 'CB', x: 65, y: 70 },
+//         { position: 'RB', x: 80, y: 70 },
+//         { position: 'LM', x: 20, y: 45 },
+//         { position: 'CM', x: 35, y: 45 },
+//         { position: 'CM', x: 65, y: 45 },
+//         { position: 'RM', x: 80, y: 45 },
+//         { position: 'ST', x: 35, y: 20 },
+//         { position: 'ST', x: 65, y: 20 }
+//     ]
+// };
+
 const formations = {
     '4-3-3': [
-        { position: 'GK', x: 50, y: 90 },
-        { position: 'LB', x: 20, y: 70 },
-        { position: 'CB', x: 35, y: 70 },
-        { position: 'CB', x: 65, y: 70 },
-        { position: 'RB', x: 80, y: 70 },
-        { position: 'CM', x: 35, y: 50 },
-        { position: 'CM', x: 50, y: 45 },
-        { position: 'CM', x: 65, y: 50 },
-        { position: 'LW', x: 20, y: 25 },
-        { position: 'ST', x: 50, y: 20 },
-        { position: 'RW', x: 80, y: 25 }
+        { position: 'GK', x: 45, y: 90 }, // Keep GK in the middle
+        { position: 'LB', x: 15, y: 70 }, // Shift left
+        { position: 'CB', x: 35, y: 70 }, // Shift left
+        { position: 'CB', x: 55, y: 70 }, // Shift left
+        { position: 'RB', x: 75, y: 70 }, // Shift left
+        { position: 'CM', x: 20, y: 45 }, // Shift left
+        { position: 'CM', x: 45, y: 45 }, // Keep this in the center
+        { position: 'CM', x: 70, y: 45 }, // Shift left
+        { position: 'LW', x: 15, y: 25 }, // Shift left
+        { position: 'ST', x: 45, y: 20 }, // Keep ST in the center
+        { position: 'RW', x: 75, y: 25 }  // Shift left
     ],
-    
+
     '4-4-2': [
-        { position: 'GK', x: 50, y: 90 },
-        { position: 'LB', x: 20, y: 70 },
-        { position: 'CB', x: 35, y: 70 },
-        { position: 'CB', x: 65, y: 70 },
-        { position: 'RB', x: 80, y: 70 },
-        { position: 'LM', x: 20, y: 45 },
-        { position: 'CM', x: 35, y: 45 },
-        { position: 'CM', x: 65, y: 45 },
-        { position: 'RM', x: 80, y: 45 },
-        { position: 'ST', x: 35, y: 20 },
-        { position: 'ST', x: 65, y: 20 }
+        { position: 'GK', x: 45, y: 90 }, // Keep GK in the middle
+        { position: 'LB', x: 15, y: 70 }, // Shift left
+        { position: 'CB', x: 35, y: 70 }, // Shift left
+        { position: 'CB', x: 55, y: 70 }, // Shift left
+        { position: 'RB', x: 75, y: 70 }, // Shift left
+        { position: 'LM', x: 15, y: 45 }, // Shift left
+        { position: 'CM', x: 35, y: 45 }, // Shift left
+        { position: 'CM', x: 55, y: 45 }, // Shift left
+        { position: 'RM', x: 75, y: 45 }, // Shift left
+        { position: 'ST', x: 20, y: 20 }, // Shift left
+        { position: 'ST', x: 70, y: 20 }  // Shift left
     ]
 };
 
+
+// function createPlayerCard(player, isSubstitute = false) {
+//     const card = document.createElement('div');
+//     card.className = 'player-card p-4';
+//     card.innerHTML = `
+//         <div style="margin-left: 20px ; position: absolute; top: 20%">
+//             <div class="text-2xl font-bold">${player.rating}</div>
+//             <div class="text-sm" style="font-style: bold;">${player.position}</div>
+//         </div>
+//         <div style="position: static; margin-top: 52px">
+//             <div>
+//             <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+//             </div>
+//             <div class=" font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
+//             <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
+//                 <div class="player-stats" style="height: 18px;">
+//                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>PAC</span><span>${player.pace || '-'}</span></div>
+//                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>SHO</span><span>${player.shooting || '-'}</span></div>
+//                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>PAS</span><span>${player.passing || '-'}</span></div>
+//                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>DRI</span><span>${player.dribbling || '-'}</span></div>
+//                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>DEF</span><span>${player.defending || '-'}</span></div>
+//                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>PHY</span><span>${player.physical || '-'}</span></div>
+//                 </div>
+            
+//             </div>
+//             <div style="margin-top: 16px; text-align: center">
+//                 <img src="${player.logo}" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline"">
+//                 <img src="${player.flag}" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline"">
+//             </div>
+//         </div>
+//     `;
+//     card.addEventListener('click', () => {
+//         if (isSubstitute) {
+//             substitutePlayer(player);
+//         } else {
+//             addPlayerToFormation(player);
+//         }
+//     });
+//     return card;
+// }
 function createPlayerCard(player, isSubstitute = false) {
     const card = document.createElement('div');
     card.className = 'player-card p-4';
@@ -44,9 +114,9 @@ function createPlayerCard(player, isSubstitute = false) {
         </div>
         <div style="position: static; margin-top: 52px">
             <div>
-            <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+                <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
             </div>
-            <div class=" font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
+            <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
             <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
                 <div class="player-stats" style="height: 18px;">
                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>PAC</span><span>${player.pace || '-'}</span></div>
@@ -56,11 +126,10 @@ function createPlayerCard(player, isSubstitute = false) {
                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>DEF</span><span>${player.defending || '-'}</span></div>
                     <div class="stat-item" style="display : flex ; flex-direction : column"><span>PHY</span><span>${player.physical || '-'}</span></div>
                 </div>
-            
             </div>
             <div style="margin-top: 16px; text-align: center">
-                <img src="${player.logo}" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline"">
-                <img src="${player.flag}" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline"">
+                <img src="${player.logo}" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+                <img src="${player.flag}" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
             </div>
         </div>
     `;
@@ -73,6 +142,7 @@ function createPlayerCard(player, isSubstitute = false) {
     });
     return card;
 }
+
 
 function createFormationSpot(position, x, y) {
     const spot = document.createElement('div');
@@ -92,24 +162,60 @@ function createFormationSpot(position, x, y) {
 
 function updateFormation() {
     const field = document.getElementById('soccerField');
-    field.innerHTML = '';
-    
+    field.innerHTML = ''; // Clear the field
+
+    // Loop through the selected formation and create spots
     formations[selectedFormation].forEach(pos => {
         const spot = createFormationSpot(pos.position, pos.x, pos.y);
-        const player = teamPlayers.find(p => p.position === pos.position);
+
+        // Find the player in this exact position
+        const player = teamPlayers.find(p => p.position === pos.position && p.x === pos.x && p.y === pos.y);
+
         if (player) {
+            // If the player is assigned to this spot, show the detailed card (mini size)
             spot.querySelector('.mini-card').innerHTML = `
-                <div class="font-bold">${player.position}</div>
-                <div class="text-xs">${player.name}</div>
-                <div class="text-xs">${player.rating}</div>
+                <div class="player-card p-4" style="position: relative;">
+                    <div style="margin-left: 20px ; position: absolute; top: 20%">
+                        <div class="text-2xl font-bold">${player.rating}</div>
+                        <div class="text-sm" style="font-style: bold;">${player.position}</div>
+                    </div>
+                    <div style="position: static; margin-top: 52px">
+                        <div>
+                            <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+                        </div>
+                        <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
+                        <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
+                            <div class="player-stats" style="height: 18px;">
+                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAC</span><span>${player.pace || '-'}</span></div>
+                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>SHO</span><span>${player.shooting || '-'}</span></div>
+                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAS</span><span>${player.passing || '-'}</span></div>
+                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>DRI</span><span>${player.dribbling || '-'}</span></div>
+                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>DEF</span><span>${player.defending || '-'}</span></div>
+                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>PHY</span><span>${player.physical || '-'}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 16px; text-align: center">
+                        <img src="${player.logo}" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+                        <img src="${player.flag}" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+                    </div>
+                </div>
+            `;
+        } else {
+            // If no player is assigned, show "Empty"
+            spot.querySelector('.mini-card').innerHTML = `
+                <div class="font-bold">${pos.position}</div>
+                <div class="text-xs">Vide</div>
             `;
         }
-        field.appendChild(spot);
+
+        field.appendChild(spot);  // Append the spot to the field
     });
 
-    updateChemistryLines();
-    updateChemistryScore();
+    updateChemistryLines();  // Update chemistry lines
+    updateChemistryScore();  // Update chemistry score
 }
+
 
 function addPlayerToFormation(player) {
     // Check if the player is already in the formation
@@ -120,7 +226,7 @@ function addPlayerToFormation(player) {
 
     // Get all positions in the current formation
     const formationPositions = formations[selectedFormation];
-    
+
     // Find the first empty position matching the player's position
     const emptyPosition = formationPositions.find(pos => 
         pos.position === player.position && 
@@ -135,40 +241,71 @@ function addPlayerToFormation(player) {
             x: emptyPosition.x,
             y: emptyPosition.y
         };
-        
+
         teamPlayers.push(newPlayer);
-        updateFormation();
-        saveToLocalStorage();
+        updateFormation();  // Update the formation field to show the new player
+        saveToLocalStorage();  // Save the updated formation to local storage
     } else {
         alert(`Impossible d'ajouter le joueur. Aucune position ${player.position} disponible.`);
     }
 }
 
+
+
 function updateFormation() {
     const field = document.getElementById('soccerField');
-    field.innerHTML = '';
-    
+    field.innerHTML = ''; // Clear the field before rendering
+
+    // Loop through the selected formation and create spots
     formations[selectedFormation].forEach(pos => {
         const spot = createFormationSpot(pos.position, pos.x, pos.y);
-        // Find player in this exact position using coordinates
-        const player = teamPlayers.find(p => 
-            p.position === pos.position && 
-            p.x === pos.x && 
-            p.y === pos.y
-        );
-        
+
+        // Find the player in this exact position
+        const player = teamPlayers.find(p => p.position === pos.position && p.x === pos.x && p.y === pos.y);
+
         if (player) {
+            // If the player is assigned to this spot, display the detailed card
             spot.querySelector('.mini-card').innerHTML = `
-                <div class="font-bold">${player.position}</div>
-                <div class="text-xs">${player.name}</div>
-                <div class="text-xs">${player.rating}</div>
+                <div class="player-card p-4" style="position: relative;">
+                    <div style="margin-left: 20px ; position: absolute; top: 20%">
+                        <div class="text-2xl font-bold">${player.rating}</div>
+                        <div class="text-sm" style="font-style: bold;">${player.position}</div>
+                    </div>
+                    <div style="position: static; margin-top: 52px">
+                        <div>
+                            <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+                        </div>
+                        <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
+                        <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
+                            <div class="player-stats" style="height: 18px;">
+                                <div class="stat-item" style="display: flex; flex-direction: column"><span>PAC</span><span>${player.pace || '-'}</span></div>
+                                <div class="stat-item" style="display: flex; flex-direction: column"><span>SHO</span><span>${player.shooting || '-'}</span></div>
+                                <div class="stat-item" style="display: flex; flex-direction: column"><span>PAS</span><span>${player.passing || '-'}</span></div>
+                                <div class="stat-item" style="display: flex; flex-direction: column"><span>DRI</span><span>${player.dribbling || '-'}</span></div>
+                                <div class="stat-item" style="display: flex; flex-direction: column"><span>DEF</span><span>${player.defending || '-'}</span></div>
+                                <div class="stat-item" style="display: flex; flex-direction: column"><span>PHY</span><span>${player.physical || '-'}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 16px; text-align: center">
+                        <img src="${player.logo}" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+                        <img src="${player.flag}" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+                    </div>
+                </div>
+            `;
+        } else {
+            // If no player is assigned, show "Empty"
+            spot.querySelector('.mini-card').innerHTML = `
+                <div class="font-bold">${pos.position}</div>
+                <div class="text-xs">Vide</div>
             `;
         }
-        field.appendChild(spot);
+
+        field.appendChild(spot);  // Append the spot to the field
     });
 
-    updateChemistryLines();
-    updateChemistryScore();
+    updateChemistryLines();  // Update chemistry lines
+    updateChemistryScore();  // Update chemistry score
 }
 
 
@@ -315,13 +452,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('playerForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        // const newPlayer = {
-        //     name: document.getElementById('playerName').value,
-        //     position: document.getElementById('playerPosition').value,
-        //     rating: parseInt(document.getElementById('playerRating').value),
-        //     club: document.getElementById('playerClub').value,
-        //     nationality: document.getElementById('playerNationality').value
-        // };
         const newPlayer = {
             name: document.getElementById('playerName').value,
             photo: document.getElementById('player-picture').value,

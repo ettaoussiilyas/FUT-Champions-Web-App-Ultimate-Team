@@ -66,3 +66,9 @@
     height: 2px;
     transform-origin: left center;
 }
+
+.mini-card {
+    transform: scale(0.5); 
+    transform-origin: center; 
+    transition: transform 0.3s ease-in-out; 
+}
