@@ -2,10 +2,11 @@
     background-image: url('../src/assets/img/badge_gold.webp');
     background-size: cover;
     background-position: center;
-    width: 200px;
-    height: 280px;
+    width: 240px; 
+    height: 320px;
     position: relative;
     color: #333;
+
 }
 
 .soccer-field {
@@ -17,10 +18,12 @@
 }
 
 .player-stats {
+    width: 80%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
-    font-size: 0.8rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    font-size: 0.7rem;
+    font-style: bold;
 }
 
 .stat-item {
