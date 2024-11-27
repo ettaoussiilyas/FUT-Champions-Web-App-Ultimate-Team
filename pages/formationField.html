@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUT Team Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    <link rel="stylesheet" href="./../style/formationField.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center">FUT Team Builder</h1>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Player Selection and Management Section -->
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg p-4 shadow">
+                    <h2 class="text-xl font-bold mb-4">Joueurs Disponibles</h2>
+                    <div id="playersList" class="grid grid-cols-1 md:grid-cols-2 gap-4" style="height: 550px; overflow: scroll;">
+                        <!-- Players added here -->
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow">
+                    <h2 class="text-xl font-bold mb-4">Remplaçants</h2>
+                    <div id="substitutesList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Substitutes  added here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Section -->
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg p-4 shadow">
+                    <h2 class="text-xl font-bold mb-4">Formation</h2>
+                    <select id="formationSelect" class="w-full p-2 border rounded mb-4">
+                        <option value="4-3-3">4-3-3</option>
+                        <option value="4-4-2">4-4-2</option>
+                    </select>
+                    <div id="soccerField" class="soccer-field w-full rounded-lg overflow-hidden shadow-lg">
+                        <!-- Formation spots will be dynamically added here -->
+                    </div>
+                    <div id="chemistryScore" class="mt-4 text-center text-xl font-bold">
+                        Score de Chimie: 0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./../js/formationField.js"></script>
+</body>
+</html>
