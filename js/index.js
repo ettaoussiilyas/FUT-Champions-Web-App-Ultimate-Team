@@ -4,35 +4,6 @@ let selectedFormation = '4-3-3';
 let teamPlayers = [];
 let substitutes = [];
 
-// const formations = {
-//     '4-3-3': [
-//         { position: 'GK', x: 50, y: 90 },
-//         { position: 'LB', x: 20, y: 70 },
-//         { position: 'CB', x: 35, y: 70 },
-//         { position: 'CB', x: 65, y: 70 },
-//         { position: 'RB', x: 80, y: 70 },
-//         { position: 'CM', x: 35, y: 50 },
-//         { position: 'CM', x: 50, y: 45 },
-//         { position: 'CM', x: 65, y: 50 },
-//         { position: 'LW', x: 20, y: 25 },
-//         { position: 'ST', x: 50, y: 20 },
-//         { position: 'RW', x: 80, y: 25 }
-//     ],
-    
-//     '4-4-2': [
-//         { position: 'GK', x: 50, y: 90 },
-//         { position: 'LB', x: 20, y: 70 },
-//         { position: 'CB', x: 35, y: 70 },
-//         { position: 'CB', x: 65, y: 70 },
-//         { position: 'RB', x: 80, y: 70 },
-//         { position: 'LM', x: 20, y: 45 },
-//         { position: 'CM', x: 35, y: 45 },
-//         { position: 'CM', x: 65, y: 45 },
-//         { position: 'RM', x: 80, y: 45 },
-//         { position: 'ST', x: 35, y: 20 },
-//         { position: 'ST', x: 65, y: 20 }
-//     ]
-// };
 
 const formations = {
     '4-3-3': [
@@ -212,7 +183,7 @@ function updateFormation() {
         field.appendChild(spot);  // Append the spot to the field
     });
 
-    updateChemistryLines();  // Update chemistry lines
+    //updateChemistryLines();  // Update chemistry lines
     updateChemistryScore();  // Update chemistry score
 }
 
@@ -304,7 +275,7 @@ function updateFormation() {
         field.appendChild(spot);  // Append the spot to the field
     });
 
-    updateChemistryLines();  // Update chemistry lines
+    //updateChemistryLines();  // Update chemistry lines
     updateChemistryScore();  // Update chemistry score
 }
 
@@ -340,61 +311,61 @@ function updateSubstitutesList() {
 }
 
 
-function updateChemistryLines() {
-    const field = document.getElementById('soccerField');
-    field.querySelectorAll('.chemistry-line').forEach(line => line.remove());
+// function updateChemistryLines() {
+//     const field = document.getElementById('soccerField');
+//     field.querySelectorAll('.chemistry-line').forEach(line => line.remove());
     
-    // Only draw chemistry lines if the formation is complete
-    if (teamPlayers.length === formations[selectedFormation].length) {
-        const spots = field.querySelectorAll('.formation-spot');
-        spots.forEach(spot => {
-            const player = teamPlayers.find(p => 
-                p.position === spot.getAttribute('data-position') &&
-                p.x === parseFloat(spot.style.left) &&
-                p.y === parseFloat(spot.style.top)
-            );
-            if (player) {
-                spots.forEach(otherSpot => {
-                    if (spot !== otherSpot) {
-                        const otherPlayer = teamPlayers.find(p => 
-                            p.position === otherSpot.getAttribute('data-position') &&
-                            p.x === parseFloat(otherSpot.style.left) &&
-                            p.y === parseFloat(otherSpot.style.top)
-                        );
-                        if (otherPlayer && (player.club === otherPlayer.club || player.nationality === otherPlayer.nationality)) {
-                            drawChemistryLine(spot, otherSpot, player.club === otherPlayer.club ? 'rgba(0, 255, 0, 0.5)' : 'rgba(255, 255, 0, 0.5)');
-                        }
-                    }
-                });
-            }
-        });
-    }
-}
+//     // Only draw chemistry lines if the formation is complete
+//     if (teamPlayers.length === formations[selectedFormation].length) {
+//         const spots = field.querySelectorAll('.formation-spot');
+//         spots.forEach(spot => {
+//             const player = teamPlayers.find(p => 
+//                 p.position === spot.getAttribute('data-position') &&
+//                 p.x === parseFloat(spot.style.left) &&
+//                 p.y === parseFloat(spot.style.top)
+//             );
+//             if (player) {
+//                 spots.forEach(otherSpot => {
+//                     if (spot !== otherSpot) {
+//                         const otherPlayer = teamPlayers.find(p => 
+//                             p.position === otherSpot.getAttribute('data-position') &&
+//                             p.x === parseFloat(otherSpot.style.left) &&
+//                             p.y === parseFloat(otherSpot.style.top)
+//                         );
+//                         if (otherPlayer && (player.club === otherPlayer.club || player.nationality === otherPlayer.nationality)) {
+//                             drawChemistryLine(spot, otherSpot, player.club === otherPlayer.club ? 'rgba(0, 255, 0, 0.5)' : 'rgba(255, 255, 0, 0.5)');
+//                         }
+//                     }
+//                 });
+//             }
+//         });
+//     }
+// }
 
-function drawChemistryLine(spot1, spot2, color) {
-    const rect1 = spot1.getBoundingClientRect();
-    const rect2 = spot2.getBoundingClientRect();
-    const field = document.getElementById('soccerField');
-    const fieldRect = field.getBoundingClientRect();
+// function drawChemistryLine(spot1, spot2, color) {
+//     const rect1 = spot1.getBoundingClientRect();
+//     const rect2 = spot2.getBoundingClientRect();
+//     const field = document.getElementById('soccerField');
+//     const fieldRect = field.getBoundingClientRect();
 
-    const x1 = rect1.left + rect1.width / 2 - fieldRect.left;
-    const y1 = rect1.top + rect1.height / 2 - fieldRect.top;
-    const x2 = rect2.left + rect2.width / 2 - fieldRect.left;
-    const y2 = rect2.top + rect2.height / 2 - fieldRect.top;
+//     const x1 = rect1.left + rect1.width / 2 - fieldRect.left;
+//     const y1 = rect1.top + rect1.height / 2 - fieldRect.top;
+//     const x2 = rect2.left + rect2.width / 2 - fieldRect.left;
+//     const y2 = rect2.top + rect2.height / 2 - fieldRect.top;
 
-    const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-    const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+//     const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+//     const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
 
-    const line = document.createElement('div');
-    line.className = 'chemistry-line';
-    line.style.width = `${distance}px`;
-    line.style.left = `${x1}px`;
-    line.style.top = `${y1}px`;
-    line.style.backgroundColor = color;
-    line.style.transform = `rotate(${angle}deg)`;
+//     const line = document.createElement('div');
+//     line.className = 'chemistry-line';
+//     line.style.width = `${distance}px`;
+//     line.style.left = `${x1}px`;
+//     line.style.top = `${y1}px`;
+//     line.style.backgroundColor = color;
+//     line.style.transform = `rotate(${angle}deg)`;
 
-    field.appendChild(line);
-}
+//     field.appendChild(line);
+// }
 
 function calculateChemistry() {
     let totalChemistry = 0;
