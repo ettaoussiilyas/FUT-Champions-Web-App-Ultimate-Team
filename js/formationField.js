@@ -36,35 +36,71 @@ const formations = {
 };
 
 
+
 function createPlayerCard(player, isSubstitute = false) {
     const card = document.createElement('div');
     card.className = 'player-card p-4';
-    card.innerHTML = `
-        <div style="margin-left: 20px ; position: absolute; top: 20%">
-            <div class="text-2xl font-bold">${player.rating}</div>
-            <div class="text-sm" style="font-style: bold;">${player.position}</div>
-        </div>
-        <div style="position: static; margin-top: 52px">
-            <div>
-                <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+
+    // Check if the player is a goalkeeper
+    if (player.position === 'GK') {
+        // Create card for goalkeepers
+        card.innerHTML = `
+            <div style="margin-left: 20px; position: absolute; top: 20%">
+                <div class="text-2xl font-bold">${player.rating}</div>
+                <div class="text-sm" style="font-style: bold;">${player.position}</div>
             </div>
-            <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
-            <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
-                <div class="player-stats" style="height: 18px;">
-                    <div class="stat-item" style="display : flex ; flex-direction : column"><span>PAC</span><span>${player.pace || '-'}</span></div>
-                    <div class="stat-item" style="display : flex ; flex-direction : column"><span>SHO</span><span>${player.shooting || '-'}</span></div>
-                    <div class="stat-item" style="display : flex ; flex-direction : column"><span>PAS</span><span>${player.passing || '-'}</span></div>
-                    <div class="stat-item" style="display : flex ; flex-direction : column"><span>DRI</span><span>${player.dribbling || '-'}</span></div>
-                    <div class="stat-item" style="display : flex ; flex-direction : column"><span>DEF</span><span>${player.defending || '-'}</span></div>
-                    <div class="stat-item" style="display : flex ; flex-direction : column"><span>PHY</span><span>${player.physical || '-'}</span></div>
+            <div style="position: static; margin-top: 52px">
+                <div>
+                    <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+                </div>
+                <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
+                <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
+                    <div class="player-stats" style="height: 18px;">
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>DIV</span><span>${player.diving || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>HAN</span><span>${player.handling || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>KIC</span><span>${player.kicking || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>REF</span><span>${player.reflexes || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>SPD</span><span>${player.speed || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>POS</span><span>${player.positioning || '-'}</span></div>
+                    </div>
+                </div>
+                <div style="margin-top: 16px; text-align: center">
+                    <img src="${player.logo}" alt="${player.club}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display: inline">
+                    <img src="${player.flag}" alt="${player.nationality}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display: inline">
                 </div>
             </div>
-            <div style="margin-top: 16px; text-align: center">
-                <img src="${player.logo}" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
-                <img src="${player.flag}" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+        `;
+    } else {
+        // Create card for normal players
+        card.innerHTML = `
+            <div style="margin-left: 20px; position: absolute; top: 20%">
+                <div class="text-2xl font-bold">${player.rating}</div>
+                <div class="text-sm" style="font-style: bold;">${player.position}</div>
             </div>
-        </div>
-    `;
+            <div style="position: static; margin-top: 52px">
+                <div>
+                    <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+                </div>
+                <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
+                <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
+                    <div class="player-stats" style="height: 18px;">
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>PAC</span><span>${player.pace || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>SHO</span><span>${player.shooting || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>PAS</span><span>${player.passing || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>DRI</span><span>${player.dribbling || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>DEF</span><span>${player.defending || '-'}</span></div>
+                        <div class="stat-item" style="display: flex; flex-direction: column"><span>PHY</span><span>${player.physical || '-'}</span></div>
+                    </div>
+                </div>
+                <div style="margin-top: 16px; text-align: center">
+                    <img src="${player.logo}" alt="${player.club}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display: inline">
+                    <img src="${player.flag}" alt="${player.nationality}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display: inline">
+                </div>
+            </div>
+        `;
+    }
+
+    // Add event listener for card click
     card.addEventListener('click', () => {
         if (isSubstitute) {
             substitutePlayer(player);
@@ -72,8 +108,10 @@ function createPlayerCard(player, isSubstitute = false) {
             addPlayerToFormation(player);
         }
     });
+
     return card;
 }
+
 
 
 function createFormationSpot(position, x, y) {
