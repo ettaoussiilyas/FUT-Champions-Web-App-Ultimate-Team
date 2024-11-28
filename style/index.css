@@ -1,0 +1,195 @@
+
+/* CSS Variables */
+
+:root {
+    --opacity-front: 1;
+    --opacity-back: 0.2;
+    --blur-front: 0;
+    --blur-back: 0.8px;
+    --drop-front: 4px 10px 10px rgba(0, 0, 0, 0.6);
+    --drop-back: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    padding: 0 32px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    height: 100%;
+    transform: perspective(60px);
+    transform-style: preserve-3d;
+}
+
+
+/* Card Styles */
+.top-player-card:nth-child(1) {
+    transform: translate3d(0, 0, -15px);
+    animation: rotate-left 7s ease-in-out infinite;
+    animation-delay: 0.2s;
+    filter: drop-shadow(var(--drop-back));
+}
+
+.top-player-card:nth-child(2) {
+    transform: translate3d(0, 0, 5px);
+    animation: rotate-center 7s ease-in-out infinite;
+    animation-delay: 0.2s;
+    filter: drop-shadow(var(--drop-front));
+}
+
+.top-player-card:nth-child(3) {
+    transform: translate3d(0, 0, -15px);
+    animation: rotate-right 7s ease-in-out infinite;
+    animation-delay: 0.2s;
+    filter: drop-shadow(var(--drop-back));
+}
+
+/* Keyframes */
+@keyframes rotate-left {
+    0%, 100% {
+        transform: translate3d(0, 0, -15px);
+    }
+    33.33% {
+        transform: translate3d(100%, 0, 5px);
+    }
+    66.66% {
+        transform: translate3d(200%, 0, -15px);
+    }
+}
+
+@keyframes rotate-center {
+    0%, 100% {
+        transform: translate3d(0, 0, 5px);
+    }
+    33.33% {
+        transform: translate3d(100%, 0, -15px);
+    }
+    66.66% {
+        transform: translate3d(-100%, 0, -15px);
+    }
+}
+
+@keyframes rotate-right {
+    0%, 100% {
+        transform: translate3d(0, 0, -15px);
+    }
+    33.33% {
+        transform: translate3d(-200%, 0, -15px);
+    }
+    66.66% {
+        transform: translate3d(-100%, 0, 5px);
+
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .top-player-card:nth-child(1) {
+        transform: translate3d(0, 0, -15px);
+    }
+
+    .top-player-card:nth-child(2) {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .top-player-card:nth-child(3) {
+        transform: translate3d(0, 0, -15px);
+    }
+
+    @keyframes rotate-left {
+        0%, 100% {
+            transform: translate3d(0, 0, -15px);
+        }
+        33.33% {
+            transform: translate3d(0, 100%, 5px);
+        }
+        66.66% {
+            transform: translate3d(0, 200%, -15px);
+        }
+    }
+
+    @keyframes rotate-center {
+        0%, 100% {
+            transform: translate3d(0, 0, 5px);
+        }
+        33.33% {
+            transform: translate3d(0, 100%, -15px);
+        }
+        66.66% {
+            transform: translate3d(0, -100%, -15px);
+        }
+    }
+
+    @keyframes rotate-right {
+        0%, 100% {
+            transform: translate3d(0, 0, -15px);
+        }
+        33.33% {
+            transform: translate3d(0, -200%, -15px);
+        }
+        66.66% {
+            transform: translate3d(0, -100%, 5px);
+        }
+    }
+}
+
+/*this part about the first section in index page*/
+.content {
+    margin-top: 6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
+    gap: 20px;
+}
+
+
+#pargraphe-title {
+    padding: 20px;
+    text-align: center;
+}
+
+
+#img-title {
+    width: 100%;
+    height: 500px; 
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr; 
+    }
+
+    #img-title {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        margin-top: 3rem; 
+    }
+
+    #img-title {
+        height: 300px;
+    }
+
+    #pargraphe-title {
+        padding: 10px; 
+    }
+}
