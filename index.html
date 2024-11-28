@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUT Team Builder</title>
+    <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
-    <link rel="stylesheet" href="./../style/formationField.css">
 </head>
-<body class="bg-green-400 min-h-screen">
-    <nav class="relative px-4 py-4 flex justify-between items-center bg-white">
+
+
+    <!-- component -->
+<body class="bg-green-400">
+	<nav class="relative px-4 py-4 flex justify-between items-center bg-white">
 		<a class="text-3xl font-bold leading-none ml-10" href="#">
-			<img src="./../src/assets/logo/logoEb.png" alt="" class="h-16">
+			<img src="./src/assets/logo/logoEb.png" alt="" class="h-16">
 		</a>
 		<div class="lg:hidden">
 			<button class="navbar-burger flex items-center text-black p-3">
@@ -22,19 +24,19 @@
 			</button>
 		</div>
 		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./../index.html">Accuil</a></li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./index.html">Accuil</a></li>
 			<li class="text-black">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./formationField.html">DreamTeam</a></li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./pages/formationField.html">DreamTeam</a></li>
 			<li class="text-black">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./updatePlayers.html">BuildTeam</a></li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./pages/updatePlayers.html">BuildTeam</a></li>
 			<li class="text-black">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -52,7 +54,7 @@
                 </a> -->
                 <a class="mr-auto text-3xl font-bold leading-none" href="#">
 					<svg class="h-16" viewBox="0 0 10240 10240">
-                        <image href="./../src/assets/logo/logoEb.png" x="0" y="0" height="100%" width="100%" />
+                        <image href="./src/assets/logo/logoEb.png" x="0" y="0" height="100%" width="100%" />
                     </svg>
 				</a>
 				<button class="navbar-close">
@@ -64,13 +66,13 @@
 			<div>
 				<ul>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./../index.html">Accuil</a>
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./index.html">Accuil</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./formationField.html">DreamTeam</a>
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./pages/formationField.html">DreamTeam</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./updatePlayers.html">BuildTeam</a>
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./pages/updatePlayers.html">BuildTeam</a>
 					</li>
 					<li class="mb-1">
 						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="#">About</a>
@@ -80,47 +82,9 @@
 			</div>
 
 		</nav>
-	</div>   
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-8 text-center">FUT Team Builder</h1>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Player Selection and Management Section -->
-            <div class="space-y-4">
-                <div class="bg-white rounded-lg p-4 shadow">
-                    <h2 class="text-xl font-bold mb-4">Joueurs Disponibles</h2>
-                    <div id="playersList" class="grid grid-cols-1 md:grid-cols-2 gap-4" style="height: 550px; overflow: scroll;">
-                        <!-- Players added here -->
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg p-4 shadow">
-                    <h2 class="text-xl font-bold mb-4">Remplaçants</h2>
-                    <div id="substitutesList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Substitutes  added here -->
-                    </div>
-                </div>
-            </div>
+	</div>
 
-            <!-- Formation Section -->
-            <div class="space-y-4">
-                <div class="bg-white rounded-lg p-4 shadow">
-                    <h2 class="text-xl font-bold mb-4">Formation</h2>
-                    <select id="formationSelect" class="w-full p-2 border rounded mb-4">
-                        <option value="4-3-3">4-3-3</option>
-                        <option value="4-4-2">4-4-2</option>
-                    </select>
-                    <div id="soccerField" class="soccer-field w-full rounded-lg overflow-hidden shadow-lg">
-                        <!-- Formation spots will be dynamically added here -->
-                    </div>
-                    <div id="chemistryScore" class="mt-4 text-center text-xl font-bold">
-                        Score de Chimie: 0
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="./../js/formationField.js"></script>
-    <script src="./../js/index.js"></script>
 </body>
+
+<script src="./js/index.js"></script>
 </html>
