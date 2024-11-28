@@ -16,7 +16,7 @@ body {
     margin: 0;
 }
 
-.container {
+.container-one {
     max-width: 980px;
     padding: 0 32px;
     box-sizing: border-box;
@@ -94,7 +94,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 480px) {
-    .container {
+    .container-one {
         flex-direction: column;
     }
 
