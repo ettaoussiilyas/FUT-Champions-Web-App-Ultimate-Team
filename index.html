@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUT Team Builder</title>
+    <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
-    <link rel="stylesheet" href="./../style/formationField.css">
-	<link rel="stylesheet" href="./../style/nav-footer.css">
-
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/formationField.css">
+    <link rel="stylesheet" href="./style/nav-footer.css">
 </head>
-<body class="bg-green-400 min-h-screen">
+    
+<body class="bg-green-400">
     <!-- header start-->
-    <nav class="relative px-4 py-4 flex justify-between items-center bg-white">
+    <nav class="fixed top-0 left-0 right-0 z-50 px-4 py-4 mb-6 bg-white shadow-md px-4 py-4 flex justify-between items-center">
 		<a class="text-3xl font-bold leading-none ml-10" href="#">
-			<img src="./../src/assets/logo/logoEb.png" alt="" class="h-16">
+			<img src="./src/assets/logo/logoEb.png" alt="" class="h-16">
 		</a>
 		<div class="lg:hidden">
 			<button class="navbar-burger flex items-center text-black p-3">
@@ -25,19 +26,19 @@
 			</button>
 		</div>
 		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./../index.html">Accuil</a></li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./index.html">Accuil</a></li>
 			<li class="text-black">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./formationField.html">DreamTeam</a></li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./pages/formationField.html">DreamTeam</a></li>
 			<li class="text-black">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./updatePlayers.html">BuildTeam</a></li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./pages/updatePlayers.html">BuildTeam</a></li>
 			<li class="text-black">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -55,7 +56,7 @@
                 </a> -->
                 <a class="mr-auto text-3xl font-bold leading-none" href="#">
 					<svg class="h-16" viewBox="0 0 10240 10240">
-                        <image href="./../src/assets/logo/logoEb.png" x="0" y="0" height="100%" width="100%" />
+                        <image href="./src/assets/logo/logoEb.png" x="0" y="0" height="100%" width="100%" />
                     </svg>
 				</a>
 				<button class="navbar-close">
@@ -67,13 +68,13 @@
 			<div>
 				<ul>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./../index.html">Accuil</a>
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./index.html">Accuil</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./formationField.html">DreamTeam</a>
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./pages/formationField.html">DreamTeam</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./updatePlayers.html">BuildTeam</a>
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./pages/updatePlayers.html">BuildTeam</a>
 					</li>
 					<li class="mb-1">
 						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="#">About</a>
@@ -85,45 +86,99 @@
 		</nav>
 	</div>
     <!-- header end-->
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-8 text-center">FUT Team Builder</h1>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Player Selection and Management Section -->
-            <div class="space-y-4">
-                <div class="bg-white rounded-lg p-4 shadow">
-                    <h2 class="text-xl font-bold mb-4">Joueurs Disponibles</h2>
-                    <div id="playersList" class="grid grid-cols-1 md:grid-cols-2 gap-4" style="height: 550px; overflow: scroll;">
-                        <!-- Players added here -->
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg p-4 shadow">
-                    <h2 class="text-xl font-bold mb-4">Remplaçants</h2>
-                    <div id="substitutesList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Substitutes  added here -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Formation Section -->
-            <div class="space-y-4">
-                <div class="bg-white rounded-lg p-4 shadow">
-                    <h2 class="text-xl font-bold mb-4">Formation</h2>
-                    <select id="formationSelect" class="w-full p-2 border rounded mb-4">
-                        <option value="4-3-3">4-3-3</option>
-                        <option value="4-4-2">4-4-2</option>
-                    </select>
-                    <div id="soccerField" class="soccer-field w-full rounded-lg overflow-hidden shadow-lg">
-                        <!-- Formation spots will be dynamically added here -->
-                    </div>
-                    <div id="chemistryScore" class="mt-4 text-center text-xl font-bold">
-                        Score de Chimie: 0
-                    </div>
-                </div>
-            </div>
+    <div class="content" style="">
+        <div id="pargraphe-title" style="">
+            <p id="title" style="font-weight: bold; font-size: 5rem;font-family: Arial, Helvetica, sans-serif; padding: 50px; color: white; font-style: italic;">Make Your <br>Dream Team</p>
+        </div>
+        <div style="" id="img-title">
+            <img src="./src/assets/img/player3.png" alt="" >
         </div>
     </div>
-	<footer class="bg-white dark:bg-gray-900">
+    <div style="display: flex; justify-content: center;">
+        <p style="color: white; font-size: 3rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-style: italic; margin-bottom: 20px;">Best Players</p>
+    </div>
+    <div class="container-one">
+        <div class="player-card p-4 top-player-card" style="position: relative;">
+            <div style="margin-left: 20px ; position: absolute; top: 20%">
+                <div class="text-2xl font-bold">82</div>
+                <div class="text-sm" style="font-style: bold;">LW</div>
+            </div>
+            <div style="position: static; margin-top: 52px">
+                <div>
+                    <img src="https://cdn.sofifa.net/players/231/410/25_120.png" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+                </div>
+                <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>Brahim Diáz</p></div>
+                <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
+                    <div class="player-stats" style="height: 18px;">
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAC</span><span>85</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>SHO</span><span>74</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAS</span><span>78</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>DRI</span><span>85</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>DEF</span><span>85</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PHY</span><span>56</span></div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 16px; text-align: center">
+                <img src="https://cdn.sofifa.net/meta/team/3468/120.png" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+                <img src="https://cdn.sofifa.net/flags/ma.png" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+            </div>
+        </div>
+        <div class="player-card p-4 top-player-card" style="position: relative;">
+            <div style="margin-left: 20px ; position: absolute; top: 20%">
+                <div class="text-2xl font-bold">88</div>
+                <div class="text-sm" style="font-style: bold;">CB</div>
+            </div>
+            <div style="position: static; margin-top: 52px">
+                <div>
+                    <img src="https://cdn.sofifa.net/players/205/452/25_120.png" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+                </div>
+                <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>Antonio Rudiger</p></div>
+                <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
+                    <div class="player-stats" style="height: 18px;">
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAC</span><span>82</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>SHO</span><span>55</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAS</span><span>73</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>DRI</span><span>70</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>DEF</span><span>86</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PHY</span><span>86</span></div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 16px; text-align: center">
+                <img src="https://cdn.sofifa.net/meta/team/3468/120.png" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+                <img src="https://cdn.sofifa.net/flags/de.png" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+            </div>
+        </div>
+        <div class="player-card p-4 top-player-card" style="position: relative;">
+            <div style="margin-left: 20px ; position: absolute; top: 20%">
+                <div class="text-2xl font-bold">91</div>
+                <div class="text-sm" style="font-style: bold;">ST</div>
+            </div>
+            <div style="position: static; margin-top: 52px">
+                <div>
+                    <img src="https://cdn.sofifa.net/players/239/085/25_120.png" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
+                </div>
+                <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>Erling Haaland</p></div>
+                <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
+                    <div class="player-stats" style="height: 18px;">
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAC</span><span>89</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>SHO</span><span>94</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAS</span><span>65</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>DRI</span><span>80</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>DEF</span><span>45</span></div>
+                        <div class="stat-item" style="display: flex ; flex-direction: column"><span>PHY</span><span>88</span></div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 16px; text-align: center">
+                <img src="https://cdn.sofifa.net/meta/team/476/120.png" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+                <img src="https://cdn.sofifa.net/flags/no.png" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
+            </div>
+        </div>
+     </div>
+    <!-- footer start-->
+    <footer class="bg-white dark:bg-gray-900">
         <div class="container px-6 py-12 mx-auto">
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
                 <div class="sm:col-span-2">
@@ -191,7 +246,8 @@
             </div>
         </div>
     </footer>
-    <script src="./../js/formationField.js"></script>
-    <script src="./../js/index.js"></script>
+    <!-- footer end-->
 </body>
+
+<script src="./js/index.js"></script>
 </html>

@@ -344,10 +344,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateFormation();
 
     document.getElementById('formationSelect').addEventListener('change', (e) => {
-        //localStorage.clear();//clear after select new formation
+        // localStorage.clear();//clear after select new formation
         selectedFormation = e.target.value;
-        //teamPlayers = [];//clear after select new formation
-        //substitutes = [];//clear after select new formation
+        // teamPlayers = [];//clear after select new formation
+        // substitutes = [];//clear after select new formation
         updateFormation();
         saveToLocalStorage();
     });

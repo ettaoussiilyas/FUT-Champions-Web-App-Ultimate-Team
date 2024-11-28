@@ -7,8 +7,83 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
     <link rel="stylesheet" href="./../style/formationField.css">
+    <link rel="stylesheet" href="./../style/nav-footer.css">
 </head>
-<body class="bg-gray-100 p-8">
+<body class="bg-green-400 min-h-screen">
+    <!-- header start-->
+    <nav class="relative px-4 py-4 flex justify-between items-center bg-white">
+		<a class="text-3xl font-bold leading-none ml-10" href="#">
+			<img src="./../src/assets/logo/logoEb.png" alt="" class="h-16">
+		</a>
+		<div class="lg:hidden">
+			<button class="navbar-burger flex items-center text-black p-3">
+				<svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<title>Mobile menu</title>
+					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+				</svg>
+			</button>
+		</div>
+		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./../index.html">Accuil</a></li>
+			<li class="text-black">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./formationField.html">DreamTeam</a></li>
+			<li class="text-black">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="./updatePlayers.html">BuildTeam</a></li>
+			<li class="text-black">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+			<li><a class="text-lg text-green-400 hover:text-black font-bold " href="#">About</a></li>
+		</ul>
+	</nav>
+	<div class="navbar-menu relative z-50 hidden">
+		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+			<div class="flex items-center mb-8">
+                <!-- <a class="text-3xl font-bold leading-none ml-10" href="#">
+                    <img src="./src/assets/logo/logoEb.png" alt="" class="h-16">
+                </a> -->
+                <a class="mr-auto text-3xl font-bold leading-none" href="#">
+					<svg class="h-16" viewBox="0 0 10240 10240">
+                        <image href="./../src/assets/logo/logoEb.png" x="0" y="0" height="100%" width="100%" />
+                    </svg>
+				</a>
+				<button class="navbar-close">
+					<svg class="h-6 w-6 text-green-400 cursor-pointer hover:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
+			<div>
+				<ul>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./../index.html">Accuil</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./formationField.html">DreamTeam</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="./updatePlayers.html">BuildTeam</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-black hover:bg-black hover:text-green-400 rounded" href="#">About</a>
+					</li>
+
+				</ul>
+			</div>
+
+		</nav>
+	</div>
+    <!-- header start-->
     <div class="container mx-auto">
         <h1 class="text-3xl font-bold mb-8 text-center">FUT Team Builder</h1>
         
@@ -315,7 +390,75 @@
             <div id="searchResults" class="mt-4"></div>
         </div>
     </div>
+    <footer class="bg-white dark:bg-gray-900">
+        <div class="container px-6 py-12 mx-auto">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
+                <div class="sm:col-span-2">
+                    <h1 class="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">Search For Last Players Lists</h1>
 
+                    <div class="flex flex-col mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row">
+                        <input id="text" type="text" class="px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Player Name">
+                    
+                        <button class="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                            Search
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="font-semibold text-gray-800 dark:text-white">Quick Link</p>
+
+                    <div class="flex flex-col items-start mt-5 space-y-2">
+                        <a href="./pages/formationField.html" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:text-green-400">DreamTeam</a>
+                        <a href="./pages/updatePlayers.html" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400  hover:text-green-400">BuildTeam</a>
+                        <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400  hover:text-green-400">About</a>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="font-semibold text-gray-800 dark:text-white">Services</p>
+
+                    <div class="flex flex-col items-start mt-5 space-y-2">
+                        <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:text-green-400">Coaching For Coach</a>
+                        <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:text-green-400">Coaching For Players</a>
+                        <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:text-green-400">Programmes</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-6 border-gray-200 md:my-8 dark:border-gray-700">
+
+            <div class="flex items-center justify-between">
+
+                <div class="flex -mx-2">
+                    <!-- <a href="#">
+                        <img class="w-auto h-7" src="./src/assets/logo/logoEb.png" alt="">
+                    </a> -->
+                    <a href="https://www.instagram.com/eb_foot/" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-green-400 dark:hover:text-blue-400" aria-label="Reddit">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5 fill-current">
+                            <path d="M12 2.2c3.1 0 3.5 0 4.7.1 1.2.1 2 .3 2.5.5.6.3 1 .7 1.4 1.4.2.5.4 1.3.5 2.5.1 1.2.1 1.6.1 4.7s0 3.5-.1 4.7c-.1 1.2-.3 2-.5 2.5-.3.6-.7 1-1.4 1.4-.5.2-1.3.4-2.5.5-1.2.1-1.6.1-4.7.1s-3.5 0-4.7-.1c-1.2-.1-2-.3-2.5-.5-.6-.3-1-.7-1.4-1.4-.2-.5-.4-1.3-.5-2.5C2.2 15.5 2.2 15.1 2.2 12s0-3.5.1-4.7c.1-1.2.3-2 .5-2.5.3-.6.7-1 1.4-1.4.5-.2 1.3-.4 2.5-.5C8.5 2.2 8.9 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.6.1-.9.1-1.4.3-1.8.5-.5.3-.8.6-1.1 1.1-.2.4-.4.9-.5 1.8-.1 1-.1 1.4-.1 4.6s0 3.5.1 4.6c.1.9.3 1.4.5 1.8.3.5.6.8 1.1 1.1.4.2.9.4 1.8.5 1 .1 1.4.1 4.6.1s3.5 0 4.6-.1c.9-.1 1.4-.3 1.8-.5.5-.3.8-.6 1.1-1.1.2-.4.4-.9.5-1.8.1-1 .1-1.4.1-4.6s0-3.5-.1-4.6c-.1-.9-.3-1.4-.5-1.8-.3-.5-.6-.8-1.1-1.1-.4-.2-.9-.4-1.8-.5-1-.1-1.4-.1-4.6-.1zm0 3.5a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm0 1.8a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.5-.8a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.facebook.com/ebfootball.training/" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-green-400 dark:hover:text-blue-400" aria-label="Facebook">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.youtube.com/@ebfootball" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-green-400 dark:hover:text-blue-400" aria-label="Github">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5 fill-current">
+                            <path d="M23.498 6.186a3.007 3.007 0 0 0-2.12-2.123C19.8 3.5 12 3.5 12 3.5s-7.8 0-9.378.563a3.007 3.007 0 0 0-2.12 2.123C0 7.765 0 12 0 12s0 4.235.502 5.814a3.007 3.007 0 0 0 2.12 2.123C4.2 20.5 12 20.5 12 20.5s7.8 0 9.378-.563a3.007 3.007 0 0 0 2.12-2.123C24 16.235 24 12 24 12s0-4.235-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="./../js/updatePlayers.js"></script>
+    <script src="./../js/index.js"></script>
 </body>
 </html>
