@@ -409,15 +409,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// fetch('players.json')
-// .then(response => response.json())
-// .then(data => {
-//     if (!localStorage.getItem('playersData')) {
-//         playersData = data.players;
-//         saveToLocalStorage();
-//     }
-//     updatePlayersList();
-// });
 fetch('./../players.json')
     .then(response => response.json())
     .then(data => {
