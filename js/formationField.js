@@ -1,4 +1,3 @@
-
 let playersData = [];
 let selectedFormation = '4-3-3';
 let teamPlayers = [];
@@ -37,13 +36,13 @@ const formations = {
 
 
 
-function createPlayerCard(player, isSubstitute = false) {
+function createPlayerCard(player, isSubstitute = false) {//hna
     const card = document.createElement('div');
     card.className = 'player-card p-4';
 
-    // Check if the player is a goalkeeper
+    //if the player is a goalkeeper
     if (player.position === 'GK') {
-        // Create card for goalkeepers
+        
         card.innerHTML = `
             <div style="margin-left: 20px; position: absolute; top: 20%">
                 <div class="text-2xl font-bold">${player.rating}</div>
@@ -100,7 +99,7 @@ function createPlayerCard(player, isSubstitute = false) {
         `;
     }
 
-    // Add event listener for card click
+    //listener for card click
     card.addEventListener('click', () => {
         if (isSubstitute) {
             substitutePlayer(player);
@@ -194,7 +193,13 @@ function addPlayerToFormation(player) {
         return;
     }
 
-    // Get all positions in the current formation
+    // Check the player if allreday at remplacemet
+    if (substitutes.some(p => p.name === player.name)) {
+        alert('Ce joueur est déjà dans les remplaçants.');
+        return;
+    }
+
+    // باقي الكود كيما هو...
     const formationPositions = formations[selectedFormation];
 
     // Find the first empty position matching the player's position
@@ -213,8 +218,8 @@ function addPlayerToFormation(player) {
         };
 
         teamPlayers.push(newPlayer);
-        updateFormation();  // Update the formation field to show the new player
-        saveToLocalStorage();  // Save the updated formation to local storage
+        updateFormation();
+        saveToLocalStorage();
     } else {
         alert(`Impossible d'ajouter le joueur. Aucune position ${player.position} disponible.`);
     }
@@ -285,7 +290,12 @@ function removePlayerFromFormation(position) {
     const index = teamPlayers.findIndex(p => p.position === position);
     if (index !== -1) {
         const removedPlayer = teamPlayers.splice(index, 1)[0];
-        substitutes.push(removedPlayer);
+        
+
+        if (!substitutes.some(sub => sub.name === removedPlayer.name)) {
+            substitutes.push(removedPlayer);
+        }
+        
         updateFormation();
         updateSubstitutesList();
         saveToLocalStorage();
@@ -335,14 +345,14 @@ function updateChemistryScore() {
 }
 
 
-function saveToLocalStorage() {
+function saveToLocalStorage() {//done
     localStorage.setItem('teamPlayers', JSON.stringify(teamPlayers));
     localStorage.setItem('substitutes', JSON.stringify(substitutes));
     localStorage.setItem('selectedFormation', selectedFormation);
     localStorage.setItem('playersData', JSON.stringify(playersData));
 }
 
-function loadFromLocalStorage() {
+function loadFromLocalStorage() {//done
     const savedTeamPlayers = localStorage.getItem('teamPlayers');
     const savedSubstitutes = localStorage.getItem('substitutes');
     const savedFormation = localStorage.getItem('selectedFormation');
@@ -368,7 +378,7 @@ function loadFromLocalStorage() {
 }
 
 //new fuction
-function updatePlayersList() {
+function updatePlayersList() {//donne
     const playersList = document.getElementById('playersList');
     playersList.innerHTML = '';
     playersData.forEach(player => {
@@ -409,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-fetch('./../players.json')
+fetch('./../players.json')//done
     .then(response => response.json())
     .then(data => {
         try {
