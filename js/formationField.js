@@ -129,62 +129,6 @@ function createFormationSpot(position, x, y) {
     return spot;
 }
 
-function updateFormation() {
-    const field = document.getElementById('soccerField');
-    field.innerHTML = ''; // Clear the field
-
-    // Loop through the selected formation and create spots
-    formations[selectedFormation].forEach(pos => {
-        const spot = createFormationSpot(pos.position, pos.x, pos.y);
-
-        // Find the player in this exact position
-        const player = teamPlayers.find(p => p.position === pos.position && p.x === pos.x && p.y === pos.y);
-
-        if (player) {
-            // If the player is assigned to this spot, show the detailed card (mini size)
-            spot.querySelector('.mini-card').innerHTML = `
-                <div class="player-card p-4" style="position: relative;">
-                    <div style="margin-left: 20px ; position: absolute; top: 20%">
-                        <div class="text-2xl font-bold">${player.rating}</div>
-                        <div class="text-sm" style="font-style: bold;">${player.position}</div>
-                    </div>
-                    <div style="position: static; margin-top: 52px">
-                        <div>
-                            <img src="${player.photo}" alt="${player.name}" class="w-36 object-cover rounded-full ml-auto mr-auto p-0" style="margin-top: -8px">
-                        </div>
-                        <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
-                        <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
-                            <div class="player-stats" style="height: 18px;">
-                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAC</span><span>${player.pace || '-'}</span></div>
-                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>SHO</span><span>${player.shooting || '-'}</span></div>
-                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>PAS</span><span>${player.passing || '-'}</span></div>
-                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>DRI</span><span>${player.dribbling || '-'}</span></div>
-                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>DEF</span><span>${player.defending || '-'}</span></div>
-                                <div class="stat-item" style="display: flex ; flex-direction: column"><span>PHY</span><span>${player.physical || '-'}</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 16px; text-align: center">
-                        <img src="${player.logo}" alt="${player.logo}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
-                        <img src="${player.flag}" alt="${player.flag}" class="w-6 h-6 object-cover rounded-full m-auto p-0" style="display:inline">
-                    </div>
-                </div>
-            `;
-        } else {
-            // If no player is assigned, show "Empty"
-            spot.querySelector('.mini-card').innerHTML = `
-                <div class="font-bold">${pos.position}</div>
-                <div class="text-xs">Vide</div>
-            `;
-        }
-
-        field.appendChild(spot);  // Append the spot to the field
-    });
-
-    //updateChemistryLines();  // Update chemistry lines
-    updateChemistryScore();  // Update chemistry score
-}
-
 
 function addPlayerToFormation(player) {
     // Check if the player is already in the formation
@@ -199,7 +143,6 @@ function addPlayerToFormation(player) {
         return;
     }
 
-    // باقي الكود كيما هو...
     const formationPositions = formations[selectedFormation];
 
     // Find the first empty position matching the player's position
@@ -386,36 +329,53 @@ function updatePlayersList() {//donne
     });
 }
 
+function clearSubstitutes() {
+    substitutes = [];
+    updateSubstitutesList();
+    saveToLocalStorage();
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     loadFromLocalStorage();
     updateFormation();
 
+    // document.getElementById('formationSelect').addEventListener('change', (e) => {
+    //     selectedFormation = e.target.value;
+    //     updateFormation();
+    //     saveToLocalStorage();
+
+    // });
     document.getElementById('formationSelect').addEventListener('change', (e) => {
-        // localStorage.clear();//clear after select new formation
         selectedFormation = e.target.value;
-        // teamPlayers = [];//clear after select new formation
-        // substitutes = [];//clear after select new formation
+        
+        // Réorganiser les joueurs dans la nouvelle formation
+        const tempPlayers = [...teamPlayers];
+        teamPlayers = [];
+        
+        tempPlayers.forEach(player => {
+            // Essayer d'ajouter chaque joueur dans la nouvelle formation
+            const formationSpot = formations[selectedFormation].find(pos => 
+                pos.position === player.position && 
+                !teamPlayers.some(p => p.position === pos.position && p.x === pos.x && p.y === pos.y)
+            );
+            
+            if (formationSpot) {
+                teamPlayers.push({
+                    ...player,
+                    x: formationSpot.x,
+                    y: formationSpot.y
+                });
+            } else {
+                // Si le joueur ne peut pas être placé, l'ajouter aux remplaçants
+                substitutes.push(player);
+            }
+        });
+        
         updateFormation();
+        updateSubstitutesList();
         saveToLocalStorage();
     });
-        
-            // Initialize drag and drop
-    new Sortable(document.getElementById('soccerField'), {
-        animation: 150,
-        onEnd: function(evt) {
-            const fromPosition = evt.item.getAttribute('data-position');
-            const toPosition = evt.to.getAttribute('data-position');
-            if (fromPosition && toPosition) {
-                const playerIndex = teamPlayers.findIndex(p => p.position === fromPosition);
-                if (playerIndex !== -1) {
-                    teamPlayers[playerIndex].position = toPosition;
-                    updateFormation();
-                    saveToLocalStorage();
-                }
-            }
-        }
-    });
+    
 });
 
 
