@@ -6,31 +6,31 @@ let substitutes = [];
 
 const formations = {
     '4-3-3': [
-        { position: 'GK', x: 45, y: 90 }, // Keep GK in the middle
-        { position: 'LB', x: 15, y: 70 }, // Shift left
-        { position: 'CB', x: 35, y: 70 }, // Shift left
-        { position: 'CB', x: 55, y: 70 }, // Shift left
-        { position: 'RB', x: 75, y: 70 }, // Shift left
-        { position: 'CM', x: 20, y: 45 }, // Shift left
-        { position: 'CM', x: 45, y: 45 }, // Keep this in the center
-        { position: 'CM', x: 70, y: 45 }, // Shift left
-        { position: 'LW', x: 15, y: 25 }, // Shift left
-        { position: 'ST', x: 45, y: 20 }, // Keep ST in the center
-        { position: 'RW', x: 75, y: 25 }  // Shift left
+        { position: 'GK', x: 45, y: 90 }, 
+        { position: 'LB', x: 15, y: 70 }, 
+        { position: 'CB', x: 35, y: 70 }, 
+        { position: 'CB', x: 55, y: 70 }, 
+        { position: 'RB', x: 75, y: 70 }, 
+        { position: 'CM', x: 20, y: 45 }, 
+        { position: 'CM', x: 45, y: 45 }, 
+        { position: 'CM', x: 70, y: 45 }, 
+        { position: 'LW', x: 15, y: 25 }, 
+        { position: 'ST', x: 45, y: 20 }, 
+        { position: 'RW', x: 75, y: 25 }  
     ],
 
     '4-4-2': [
-        { position: 'GK', x: 45, y: 90 }, // Keep GK in the middle
-        { position: 'LB', x: 15, y: 70 }, // Shift left
-        { position: 'CB', x: 35, y: 70 }, // Shift left
-        { position: 'CB', x: 55, y: 70 }, // Shift left
-        { position: 'RB', x: 75, y: 70 }, // Shift left
-        { position: 'LM', x: 15, y: 45 }, // Shift left
-        { position: 'CM', x: 35, y: 45 }, // Shift left
-        { position: 'CM', x: 55, y: 45 }, // Shift left
-        { position: 'RM', x: 75, y: 45 }, // Shift left
-        { position: 'ST', x: 20, y: 20 }, // Shift left
-        { position: 'ST', x: 70, y: 20 }  // Shift left
+        { position: 'GK', x: 45, y: 90 },
+        { position: 'LB', x: 15, y: 70 },
+        { position: 'CB', x: 35, y: 70 },
+        { position: 'CB', x: 55, y: 70 },
+        { position: 'RB', x: 75, y: 70 },
+        { position: 'LM', x: 15, y: 45 },
+        { position: 'CM', x: 35, y: 45 },
+        { position: 'CM', x: 55, y: 45 },
+        { position: 'RM', x: 75, y: 45 },
+        { position: 'ST', x: 20, y: 20 },
+        { position: 'ST', x: 70, y: 20 }  
     ]
 };
 
@@ -133,13 +133,13 @@ function createFormationSpot(position, x, y) {
 function addPlayerToFormation(player) {
     // Check if the player is already in the formation
     if (teamPlayers.some(p => p.name === player.name)) {
-        alert('Ce joueur est déjà dans la formation.');
+        alert('This player is already in training');
         return;
     }
 
     // Check the player if allreday at remplacemet
     if (substitutes.some(p => p.name === player.name)) {
-        alert('Ce joueur est déjà dans les remplaçants.');
+        alert('This player is already in the substitutes');
         return;
     }
 
@@ -182,7 +182,26 @@ function updateFormation() {
         const player = teamPlayers.find(p => p.position === pos.position && p.x === pos.x && p.y === pos.y);
 
         if (player) {
-            // If the player is assigned to this spot, display the detailed card
+            const statsHTML = player.position === 'GK' ? `
+                <div class="player-stats" style="height: 18px;">
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>DIV</span><span>${player.diving || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>HAN</span><span>${player.handling || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>KIC</span><span>${player.kicking || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>REF</span><span>${player.reflexes || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>SPD</span><span>${player.speed || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>POS</span><span>${player.positioning || '-'}</span></div>
+                </div>
+            ` : `
+                <div class="player-stats" style="height: 18px;">
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>PAC</span><span>${player.pace || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>SHO</span><span>${player.shooting || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>PAS</span><span>${player.passing || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>DRI</span><span>${player.dribbling || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>DEF</span><span>${player.defending || '-'}</span></div>
+                    <div class="stat-item" style="display: flex; flex-direction: column"><span>PHY</span><span>${player.physical || '-'}</span></div>
+                </div>
+            `;
+
             spot.querySelector('.mini-card').innerHTML = `
                 <div class="player-card p-4" style="position: relative;">
                     <div style="margin-left: 20px ; position: absolute; top: 20%">
@@ -195,14 +214,7 @@ function updateFormation() {
                         </div>
                         <div class="font-bold" style="width: 100%; display: flex; align-items: center; justify-content: center;"><p>${player.name}</p></div>
                         <div style="display: flex; align-items: center; justify-content: center;" class="m-0 p-0">
-                            <div class="player-stats" style="height: 18px;">
-                                <div class="stat-item" style="display: flex; flex-direction: column"><span>PAC</span><span>${player.pace || '-'}</span></div>
-                                <div class="stat-item" style="display: flex; flex-direction: column"><span>SHO</span><span>${player.shooting || '-'}</span></div>
-                                <div class="stat-item" style="display: flex; flex-direction: column"><span>PAS</span><span>${player.passing || '-'}</span></div>
-                                <div class="stat-item" style="display: flex; flex-direction: column"><span>DRI</span><span>${player.dribbling || '-'}</span></div>
-                                <div class="stat-item" style="display: flex; flex-direction: column"><span>DEF</span><span>${player.defending || '-'}</span></div>
-                                <div class="stat-item" style="display: flex; flex-direction: column"><span>PHY</span><span>${player.physical || '-'}</span></div>
-                            </div>
+                            ${statsHTML}
                         </div>
                     </div>
                     <div style="margin-top: 16px; text-align: center">
@@ -339,12 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFromLocalStorage();
     updateFormation();
 
-    // document.getElementById('formationSelect').addEventListener('change', (e) => {
-    //     selectedFormation = e.target.value;
-    //     updateFormation();
-    //     saveToLocalStorage();
-
-    // });
     document.getElementById('formationSelect').addEventListener('change', (e) => {
         selectedFormation = e.target.value;
         
