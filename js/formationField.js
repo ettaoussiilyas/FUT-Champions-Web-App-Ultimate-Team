@@ -131,13 +131,11 @@ function createFormationSpot(position, x, y) {
 
 
 function addPlayerToFormation(player) {
-    // Check if the player is already in the formation
     if (teamPlayers.some(p => p.name === player.name)) {
         alert('This player is already in training');
         return;
     }
 
-    // Check the player if allreday at remplacemet
     if (substitutes.some(p => p.name === player.name)) {
         alert('This player is already in the substitutes');
         return;
@@ -145,14 +143,13 @@ function addPlayerToFormation(player) {
 
     const formationPositions = formations[selectedFormation];
 
-    // Find the first empty position matching the player's position
+
     const emptyPosition = formationPositions.find(pos => 
         pos.position === player.position && 
         !teamPlayers.some(p => p.position === pos.position && p.x === pos.x && p.y === pos.y)
     );
 
     if (emptyPosition) {
-        // Add the player to only this specific position
         const newPlayer = {
             ...player,
             position: emptyPosition.position,
@@ -164,7 +161,7 @@ function addPlayerToFormation(player) {
         updateFormation();
         saveToLocalStorage();
     } else {
-        alert(`Impossible d'ajouter le joueur. Aucune position ${player.position} disponible.`);
+        alert(`We can't add this player because there is no ${player.position} position available.`);
     }
 }
 
@@ -174,11 +171,11 @@ function updateFormation() {
     const field = document.getElementById('soccerField');
     field.innerHTML = ''; // Clear the field before rendering
 
-    // Loop through the selected formation and create spots
+    // loop sur the selected formation and create spots
     formations[selectedFormation].forEach(pos => {
         const spot = createFormationSpot(pos.position, pos.x, pos.y);
 
-        // Find the player in this exact position
+        // check the player in this exact position
         const player = teamPlayers.find(p => p.position === pos.position && p.x === pos.x && p.y === pos.y);
 
         if (player) {
@@ -234,7 +231,6 @@ function updateFormation() {
         field.appendChild(spot);  // Append the spot to the field
     });
 
-    //updateChemistryLines();  // Update chemistry lines
     updateChemistryScore();  // Update chemistry score
 }
 
@@ -354,12 +350,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('formationSelect').addEventListener('change', (e) => {
         selectedFormation = e.target.value;
         
-        // Réorganiser les joueurs dans la nouvelle formation
         const tempPlayers = [...teamPlayers];
         teamPlayers = [];
         
         tempPlayers.forEach(player => {
-            // Essayer d'ajouter chaque joueur dans la nouvelle formation
             const formationSpot = formations[selectedFormation].find(pos => 
                 pos.position === player.position && 
                 !teamPlayers.some(p => p.position === pos.position && p.x === pos.x && p.y === pos.y)
@@ -372,7 +366,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     y: formationSpot.y
                 });
             } else {
-                // Si le joueur ne peut pas être placé, l'ajouter aux remplaçants
                 substitutes.push(player);
             }
         });
