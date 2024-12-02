@@ -394,3 +394,10 @@ fetch('./../players.json')//done
     .catch(error => {
         console.error('Error fetching players:', error);
     });
+
+
+
+
+    // document.getElementsByClassName(".player-card").forEach(elment=>elment.addEventListener('click' , ()=>{
+    //     console.log(`le nome est : ${elment.name}`);
+    // }))
