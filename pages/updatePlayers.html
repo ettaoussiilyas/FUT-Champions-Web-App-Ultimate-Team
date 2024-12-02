@@ -49,9 +49,6 @@
 		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
 		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
 			<div class="flex items-center mb-8">
-                <!-- <a class="text-3xl font-bold leading-none ml-10" href="#">
-                    <img src="./src/assets/logo/logoEb.png" alt="" class="h-16">
-                </a> -->
                 <a class="mr-auto text-3xl font-bold leading-none" href="#">
 					<svg class="h-16" viewBox="0 0 10240 10240">
                         <image href="./../src/assets/logo/logoEb.png" x="0" y="0" height="100%" width="100%" />
@@ -89,13 +86,13 @@
         
         <!-- Add Player Section -->
         <div class="max-w-4xl mx-auto bg-white rounded-lg p-4 shadow mb-8 w-full">
-            <h2 class="text-xl font-bold mb-4">Ajouter un Joueur</h2>
+            <h2 class="text-xl font-bold mb-4">Add a Player</h2>
             <form id="playerForm" class="space-y-4">
                 <div>
                     <label for="playerPosition" class="block text-sm font-medium text-gray-700">Position</label>
                     <select id="playerPosition" name="playerPosition" required 
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                        <option value="">Sélectionner une position</option>
+                        <option value="">Select Position</option>
                         <option value="GK">Gardien de but (GK)</option>
                         <option value="CB">Défenseur central (CB)</option>
                         <option value="LB">Latéral gauche (LB)</option>
@@ -110,27 +107,27 @@
                 </div>
                 <div class="hidden normal-player">
                     <div>
-                        <label for="playerName" class="block text-sm font-medium text-gray-700">Nom du Joueur</label>
+                        <label for="playerName" class="block text-sm font-medium text-gray-700">Player Name</label>
                         <input type="text" id="playerName" name="playerName" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="player-picture" class="block text-sm font-medium text-gray-700">Player Photo URL</label>
+                        <label for="player-picture" class="block text-sm font-medium text-gray-700">Player Picture URL</label>
                         <input type="text" id="player-picture" name="player-picture" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="playerRating" class="block text-sm font-medium text-gray-700">Évaluation</label>
+                        <label for="playerRating" class="block text-sm font-medium text-gray-700">Evaluation</label>
                         <input type="number" id="playerRating" name="playerRating" min="1" max="99" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="playerNationality" class="block text-sm font-medium text-gray-700">Nationalité</label>
+                        <label for="playerNationality" class="block text-sm font-medium text-gray-700">Nationalite</label>
                         <input type="text" id="playerNationality" name="playerNationality" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="playerNationalityFlag" class="block text-sm font-medium text-gray-700">Nationalité Flag</label>
+                        <label for="playerNationalityFlag" class="block text-sm font-medium text-gray-700">Nationality Flag</label>
                         <select id="playerNationalityFlag" name="country" autocomplete="country" class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_the_United_Nations.svg/512px-Flag_of_the_United_Nations.svg.png">Select Country</option>
                             <option value="https://cdn.sofifa.net/flags/af.png">Afghanistan</option>
@@ -161,7 +158,7 @@
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="teamSelectFlag" class="block text-sm font-medium text-gray-700">Logo du Club</label>
+                        <label for="teamSelectFlag" class="block text-sm font-medium text-gray-700">Club Logo</label>
                         <select id="teamSelectFlag" name="team" autocomplete="team" class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_the_United_Nations.svg/512px-Flag_of_the_United_Nations.svg.png">Select Team</option>
                             <option value="https://cdn.sofifa.net/teams/242/120.png">Inter Miami</option>
@@ -216,34 +213,30 @@
                         <input type="number" id="playerPhysical" name="playerPhysical" min="0" max="99" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
-                    <!-- <button type="submit" 
-                        class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Ajouter Joueur
-                    </button> -->
                 </div>
                 <div class="hidden gk-player">
                     <div>
-                        <label for="playerName" class="block text-sm font-medium text-gray-700">Nom du Joueur</label>
+                        <label for="playerName" class="block text-sm font-medium text-gray-700">Player Name</label>
                         <input type="text" id="playerName" name="playerName" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="player-picture" class="block text-sm font-medium text-gray-700">Player Photo URL</label>
+                        <label for="player-picture" class="block text-sm font-medium text-gray-700">Player Picture URL</label>
                         <input type="text" id="player-picture" name="player-picture" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="playerRating" class="block text-sm font-medium text-gray-700">Évaluation</label>
+                        <label for="playerRating" class="block text-sm font-medium text-gray-700">Evaluation</label>
                         <input type="number" id="playerRating" name="playerRating" min="1" max="99" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="playerNationality" class="block text-sm font-medium text-gray-700">Nationalité</label>
+                        <label for="playerNationality" class="block text-sm font-medium text-gray-700">Nationality</label>
                         <input type="text" id="playerNationality" name="playerNationality" required 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                     <div>
-                        <label for="playerNationalityFlag" class="block text-sm font-medium text-gray-700">Nationalité Flag</label>
+                        <label for="playerNationalityFlag" class="block text-sm font-medium text-gray-700">Nationality Flag</label>
                         <select id="playerNationalityFlag" name="country" autocomplete="country" class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_the_United_Nations.svg/512px-Flag_of_the_United_Nations.svg.png">Select Country</option>
                             <option value="https://cdn.sofifa.net/flags/af.png">Afghanistan</option>
@@ -330,14 +323,10 @@
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
                 </div>
-                <!-- <button type="submit" 
-                    class="w-xl mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Ajouter Joueur
-                </button> -->
                 <div class="flex justify-center">
                     <button type="submit" 
                     class="max-w-2xl mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Ajouter Joueur
+                    Add Player
                 </button>
                 </div>
                
@@ -347,10 +336,10 @@
 
         <!-- Update Player Section -->
         <div class="max-w-4xl mx-auto bg-white rounded-lg p-4 shadow mb-8 w-full">
-            <h2 class="text-xl font-bold mb-4">Mettre à jour un Joueur</h2>
+            <h2 class="text-xl font-bold mb-4">Update a Player</h2>
             <form id="updatePlayerForm" class="space-y-4">
                 <div>
-                    <label for="updatePlayerName" class="block text-sm font-medium text-gray-700">Nom du Joueur</label>
+                    <label for="updatePlayerName" class="block text-sm font-medium text-gray-700">Player Name</label>
                     <input type="text" id="updatePlayerName" name="updatePlayerName" required 
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
@@ -374,7 +363,7 @@
                         </select>
                     </div>
                     <div>
-                        <label for="normalUpdateTeamFlag" class="block text-sm font-medium text-gray-700">Logo du Club</label>
+                        <label for="normalUpdateTeamFlag" class="block text-sm font-medium text-gray-700">Club Logo</label>
                         <select id="normalUpdateTeamFlag" name="team" autocomplete="team" class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_the_United_Nations.svg/512px-Flag_of_the_United_Nations.svg.png">Select Team</option>
                             <option value="https://cdn.sofifa.net/teams/242/120.png">Inter Miami</option>
@@ -455,7 +444,7 @@
                         </select>
                     </div>
                     <div>
-                        <label for="gkUpdateTeamFlag" class="block text-sm font-medium text-gray-700">Logo du Club</label>
+                        <label for="gkUpdateTeamFlag" class="block text-sm font-medium text-gray-700">Club Logo</label>
                         <select id="gkUpdateTeamFlag" name="team" autocomplete="team" class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_the_United_Nations.svg/512px-Flag_of_the_United_Nations.svg.png">Select Team</option>
                             <option value="https://cdn.sofifa.net/teams/242/120.png">Inter Miami</option>
@@ -519,10 +508,10 @@
 
                 <div class="flex justify-center">
                     <button type="button" id="checkPlayerButton" class="max-w-2xl mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Vérifier le Joueur
+                        Check Player
                     </button>
                     <button type="submit" id="updatePlayerButton" class="hidden max-w-2xl mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Mettre à jour Joueur
+                        Update Player
                     </button>
                 </div>
             </form>
@@ -530,17 +519,17 @@
 
         <!-- Delete Player Section -->
         <div class="max-w-4xl mx-auto bg-white rounded-lg p-4 shadow mb-8">
-            <h2 class="text-xl font-bold mb-4">Supprimer un Joueur</h2>
+            <h2 class="text-xl font-bold mb-4">Delete a Player</h2>
             <form id="deletePlayerForm" class="space-y-4">
                 <div>
-                    <label for="deletePlayerName" class="block text-sm font-medium text-gray-700">Nom du Joueur à Supprimer</label>
+                    <label for="deletePlayerName" class="block text-sm font-medium text-gray-700">Name of Player to Delete</label>
                     <input type="text" id="deletePlayerName" name="deletePlayerName" required 
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
                 <div class="flex justify-center">
                     <button type="submit" 
                         class="max-w-2xl mx-auto bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Supprimer le Joueur
+                        Delete Player
                     </button>
                 </div>
             </form>
@@ -548,17 +537,17 @@
 
         <!-- Search Player Section -->
         <div class="max-w-4xl mx-auto bg-white rounded-lg p-4 shadow mb-8">
-            <h2 class="text-xl font-bold mb-4">Rechercher un Joueur</h2>
+            <h2 class="text-xl font-bold mb-4">Search a Player</h2>
             <form id="searchPlayerForm" class="space-y-4">
                 <div>
-                    <label for="searchPlayerName" class="block ">Rechercher</label>
+                    <label for="searchPlayerName" class="block ">Search</label>
                     <input type="text" id="searchPlayerName" name="searchPlayerName" required 
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
                 <div class="flex justify-center">
                     <button type="submit" 
                         class="max-w-2xl mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Rechercher le Joueur
+                        Search a Player
                     </button>
                 </div>
             </form>
@@ -577,7 +566,7 @@
                         <button class="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
                             Search
                         </button>
-                    </div>
+                    </div> 
                 </div>
 
                 <div>
@@ -606,9 +595,6 @@
             <div class="flex items-center justify-between">
 
                 <div class="flex -mx-2">
-                    <!-- <a href="#">
-                        <img class="w-auto h-7" src="./src/assets/logo/logoEb.png" alt="">
-                    </a> -->
                     <a href="https://www.instagram.com/eb_foot/" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-green-400 dark:hover:text-blue-400" aria-label="Reddit">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5 fill-current">
                             <path d="M12 2.2c3.1 0 3.5 0 4.7.1 1.2.1 2 .3 2.5.5.6.3 1 .7 1.4 1.4.2.5.4 1.3.5 2.5.1 1.2.1 1.6.1 4.7s0 3.5-.1 4.7c-.1 1.2-.3 2-.5 2.5-.3.6-.7 1-1.4 1.4-.5.2-1.3.4-2.5.5-1.2.1-1.6.1-4.7.1s-3.5 0-4.7-.1c-1.2-.1-2-.3-2.5-.5-.6-.3-1-.7-1.4-1.4-.2-.5-.4-1.3-.5-2.5C2.2 15.5 2.2 15.1 2.2 12s0-3.5.1-4.7c.1-1.2.3-2 .5-2.5.3-.6.7-1 1.4-1.4.5-.2 1.3-.4 2.5-.5C8.5 2.2 8.9 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.6.1-.9.1-1.4.3-1.8.5-.5.3-.8.6-1.1 1.1-.2.4-.4.9-.5 1.8-.1 1-.1 1.4-.1 4.6s0 3.5.1 4.6c.1.9.3 1.4.5 1.8.3.5.6.8 1.1 1.1.4.2.9.4 1.8.5 1 .1 1.4.1 4.6.1s3.5 0 4.6-.1c.9-.1 1.4-.3 1.8-.5.5-.3.8-.6 1.1-1.1.2-.4.4-.9.5-1.8.1-1 .1-1.4.1-4.6s0-3.5-.1-4.6c-.1-.9-.3-1.4-.5-1.8-.3-.5-.6-.8-1.1-1.1-.4-.2-.9-.4-1.8-.5-1-.1-1.4-.1-4.6-.1zm0 3.5a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm0 1.8a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.5-.8a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/>
